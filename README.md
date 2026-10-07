@@ -1,6 +1,11 @@
-# test
+# Aplikasi Bimbingan Skripsi
 
-A new Flutter project.
+Kelompok 8 - Mobile Programming kelas A
+
+# Nama Anggota
+Albertagung Hermanyosef Hendrignes Oey - (825240004)
+Tracy Prycillia Kusmana - (8252400099)
+Syahwa Aliah Wandi - (825240139)
 
 ## Getting Started
 
