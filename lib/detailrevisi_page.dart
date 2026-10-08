@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
 
 class DetailRevisiPage {
-  static void buka(BuildContext context) {
-    final Color lightSky = const Color(0xFFEAF7FC);
-    final Color maroon = const Color(0xFF7A263A);
-    final Color darkMaroon = const Color(0xFF5C1D2B);
-    final Color lightAmber = const Color(0xFFFFF9E6);
+  static const Color maroon = Color(0xFF7A263A);
+  static const Color darkMaroon = Color(0xFF5C1D2B);
+  static const Color lightSky = Color(0xFFEAF7FC);
+  static const Color lightAmber = Color(0xFFFFF9E6);
 
-    showDialog(
+  static void buka(BuildContext context) {
+    showGeneralDialog(
       context: context,
       barrierDismissible: true,
-      builder: (BuildContext context) {
+      barrierLabel: 'Detail Revisi',
+      barrierColor: Colors.black54,
+      transitionDuration: const Duration(milliseconds: 350),
+      pageBuilder: (
+        context,
+        animation,
+        secondaryAnimation,
+      ) {
         return Dialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(24),
@@ -23,7 +30,7 @@ class DetailRevisiPage {
               crossAxisAlignment:
                   CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Detail Revisi Bimbingan',
                   style: TextStyle(
                     color: darkMaroon,
@@ -41,14 +48,16 @@ class DetailRevisiPage {
                     borderRadius:
                         BorderRadius.circular(18),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Icon(
                         Icons.assignment_late_rounded,
-                        color: Colors.amber.shade900,
+                        color: Colors.amber,
                       ),
-                      const SizedBox(width: 12),
-                      const Expanded(
+
+                      SizedBox(width: 12),
+
+                      Expanded(
                         child: Column(
                           crossAxisAlignment:
                               CrossAxisAlignment.start,
@@ -60,7 +69,9 @@ class DetailRevisiPage {
                                 fontSize: 15,
                               ),
                             ),
+
                             SizedBox(height: 5),
+
                             Text(
                               'Status: Revisi Mayor (Perbaikan Total)',
                               style: TextStyle(
@@ -85,7 +96,7 @@ class DetailRevisiPage {
                     borderRadius:
                         BorderRadius.circular(18),
                   ),
-                  child: Row(
+                  child: const Row(
                     crossAxisAlignment:
                         CrossAxisAlignment.start,
                     children: [
@@ -93,8 +104,10 @@ class DetailRevisiPage {
                         Icons.edit_note_rounded,
                         color: maroon,
                       ),
-                      const SizedBox(width: 12),
-                      const Expanded(
+
+                      SizedBox(width: 12),
+
+                      Expanded(
                         child: Column(
                           crossAxisAlignment:
                               CrossAxisAlignment.start,
@@ -106,7 +119,9 @@ class DetailRevisiPage {
                                 fontSize: 15,
                               ),
                             ),
+
                             SizedBox(height: 8),
+
                             Text(
                               '• Perbarui landasan teori dengan jurnal di atas tahun 2020.',
                               style: TextStyle(
@@ -114,7 +129,9 @@ class DetailRevisiPage {
                                 fontSize: 13,
                               ),
                             ),
+
                             SizedBox(height: 4),
+
                             Text(
                               '• Perbaiki metode pengambilan sampel pada Bab 3.',
                               style: TextStyle(
@@ -122,7 +139,9 @@ class DetailRevisiPage {
                                 fontSize: 13,
                               ),
                             ),
+
                             SizedBox(height: 4),
+
                             Text(
                               '• Rapikan format penulisan daftar pustaka.',
                               style: TextStyle(
@@ -146,14 +165,16 @@ class DetailRevisiPage {
                     borderRadius:
                         BorderRadius.circular(18),
                   ),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Icon(
                         Icons.alarm_on_rounded,
                         color: maroon,
                       ),
-                      const SizedBox(width: 12),
-                      const Expanded(
+
+                      SizedBox(width: 12),
+
+                      Expanded(
                         child: Column(
                           crossAxisAlignment:
                               CrossAxisAlignment.start,
@@ -165,7 +186,9 @@ class DetailRevisiPage {
                                 fontSize: 15,
                               ),
                             ),
+
                             SizedBox(height: 5),
+
                             Text(
                               'Senin, 12 Oktober 2026 (Sebelum Jam 12.00 WIB)',
                               style: TextStyle(
@@ -188,7 +211,7 @@ class DetailRevisiPage {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text(
+                    child: const Text(
                       'Tutup',
                       style: TextStyle(
                         color: maroon,
@@ -199,6 +222,35 @@ class DetailRevisiPage {
                 ),
               ],
             ),
+          ),
+        );
+      },
+      transitionBuilder: (
+        context,
+        animation,
+        secondaryAnimation,
+        child,
+      ) {
+        final fade = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOut,
+        );
+
+        final slide = Tween<Offset>(
+          begin: const Offset(0, 0.15),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeOutCubic,
+          ),
+        );
+
+        return FadeTransition(
+          opacity: fade,
+          child: SlideTransition(
+            position: slide,
+            child: child,
           ),
         );
       },

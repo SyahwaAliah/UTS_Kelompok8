@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 class VideoCallPage extends StatelessWidget {
   const VideoCallPage({super.key});
@@ -10,7 +11,7 @@ class VideoCallPage extends StatelessWidget {
     const orange = Color(0xFFD96545);
     const lightOrange = Color(0xFFFCE7D6);
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       backgroundColor: darkOlive,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -141,6 +142,6 @@ class VideoCallPage extends StatelessWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

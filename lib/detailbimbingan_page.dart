@@ -3,25 +3,27 @@ import 'package:flutter/material.dart';
 class DetailBimbinganPage {
   static const Color olive = Color(0xFF697447);
   static const Color darkOlive = Color(0xFF566038);
-
   static const Color cream = Color(0xFFFFF9F0);
   static const Color softGreen = Color(0xFFF2F3E7);
-
-  static const Color peach = Color(0xFFFBE4D1);
   static const Color lightPeach = Color(0xFFFFEBDD);
-
   static const Color orange = Color(0xFFE77845);
-
   static const Color textGrey = Color(0xFF9A9A94);
 
   static void open(BuildContext context) {
-    showDialog(
+    showGeneralDialog(
       context: context,
+      barrierDismissible: true,
+      barrierLabel: 'Detail Bimbingan',
       barrierColor: Colors.black54,
-      builder: (dialogContext) {
+      transitionDuration: const Duration(milliseconds: 350),
+      pageBuilder: (
+        context,
+        animation,
+        secondaryAnimation,
+      ) {
         return Dialog(
           backgroundColor: Colors.transparent,
-          insetPadding: const EdgeInsets.all(8),
+          insetPadding: const EdgeInsets.all(18),
           child: Container(
             width: double.infinity,
             padding: const EdgeInsets.fromLTRB(
@@ -33,6 +35,13 @@ class DetailBimbinganPage {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(25),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.12),
+                  blurRadius: 20,
+                  offset: const Offset(0, 8),
+                ),
+              ],
             ),
             child: SingleChildScrollView(
               child: Column(
@@ -102,7 +111,7 @@ class DetailBimbinganPage {
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.pop(dialogContext);
+                        Navigator.pop(context);
                       },
                       child: const Text(
                         'Tutup',
@@ -116,6 +125,30 @@ class DetailBimbinganPage {
                 ],
               ),
             ),
+          ),
+        );
+      },
+      transitionBuilder: (
+        context,
+        animation,
+        secondaryAnimation,
+        child,
+      ) {
+        final scaleAnimation = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOutBack,
+        );
+
+        final fadeAnimation = CurvedAnimation(
+          parent: animation,
+          curve: Curves.easeOut,
+        );
+
+        return FadeTransition(
+          opacity: fadeAnimation,
+          child: ScaleTransition(
+            scale: scaleAnimation,
+            child: child,
           ),
         );
       },

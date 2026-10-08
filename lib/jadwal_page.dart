@@ -218,7 +218,7 @@ class _JadwalPageState extends State<JadwalPage> {
     final bool tidakAdaDosen =
         selectedDay == 2 || selectedDay == 4;
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       body: JadwalBackground(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(
@@ -474,6 +474,6 @@ class _JadwalPageState extends State<JadwalPage> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

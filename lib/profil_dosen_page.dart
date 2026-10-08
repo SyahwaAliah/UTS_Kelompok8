@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 import 'booking_jadwal_page.dart';
 import 'chat_detail_page.dart';
@@ -17,7 +18,7 @@ class ProfilDosenPage extends StatelessWidget {
     final screenWidth =
         MediaQuery.of(context).size.width;
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       backgroundColor: const Color(0xFFFAF7ED),
       body: Container(
         decoration: const BoxDecoration(
@@ -303,7 +304,7 @@ class ProfilDosenPage extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 
   Widget infoDosen(

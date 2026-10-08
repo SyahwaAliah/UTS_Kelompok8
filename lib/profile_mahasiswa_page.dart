@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 import 'checklist_page.dart';
 import 'dokumen_page.dart';
@@ -17,7 +18,7 @@ class ProfileMahasiswaPage extends StatelessWidget {
     final screenWidth =
         MediaQuery.of(context).size.width;
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -373,6 +374,6 @@ class ProfileMahasiswaPage extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }

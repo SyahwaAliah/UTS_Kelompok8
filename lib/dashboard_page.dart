@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 import 'profile_mahasiswa_page.dart';
 import 'chat_page.dart';
@@ -275,7 +276,7 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -738,6 +739,6 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ],
       ),
-    );
+    ));
   }
 }

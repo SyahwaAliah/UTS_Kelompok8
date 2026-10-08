@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 class DokumenPage extends StatelessWidget {
   const DokumenPage({super.key});
@@ -9,7 +10,7 @@ class DokumenPage extends StatelessWidget {
     const darkPrimary = Color(0xFF4F5A35);
     const orange = Color(0xFFD96545);
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -115,7 +116,7 @@ class DokumenPage extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-    );
+    ));
   }
 
   Widget documentCard(

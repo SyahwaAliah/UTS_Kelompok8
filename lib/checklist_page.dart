@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 class ChecklistPage extends StatefulWidget {
   const ChecklistPage({super.key});
@@ -98,7 +99,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
     const primary = Color(0xFF687044);
     const darkPrimary = Color(0xFF4F5A35);
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -216,6 +217,6 @@ class _ChecklistPageState extends State<ChecklistPage> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

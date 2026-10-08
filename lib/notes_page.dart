@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 class NotesPage extends StatelessWidget {
   const NotesPage({super.key});
@@ -11,7 +12,7 @@ class NotesPage extends StatelessWidget {
     const cream = Color(0xFFFAF7ED);
     const lightOrange = Color(0xFFFCE7D6);
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       backgroundColor: cream,
       appBar: AppBar(
         title: const Text(
@@ -87,6 +88,6 @@ class NotesPage extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }

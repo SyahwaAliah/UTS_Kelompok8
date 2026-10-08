@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 class NotificationPage extends StatelessWidget {
   const NotificationPage({super.key});
@@ -9,7 +10,7 @@ class NotificationPage extends StatelessWidget {
     const darkOlive = Color(0xFF4F5A35);
     const olive = Color(0xFF687044);
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       backgroundColor: const Color(0xFFFAF7ED),
       body: Container(
         decoration: const BoxDecoration(
@@ -138,7 +139,7 @@ class NotificationPage extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 
   Widget notificationCard(

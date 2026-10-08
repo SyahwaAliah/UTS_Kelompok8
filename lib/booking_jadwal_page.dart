@@ -132,7 +132,7 @@ class _BookingJadwalPageState
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       body: JadwalBackground(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(
@@ -389,6 +389,6 @@ class _BookingJadwalPageState
           ),
         ),
       ),
-    );
+    ));
   }
 }

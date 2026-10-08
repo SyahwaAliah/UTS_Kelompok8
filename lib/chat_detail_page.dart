@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'jadwal_theme.dart';
 
 import 'profil_dosen_page.dart';
 
@@ -108,7 +109,7 @@ class _ChatDetailPageState
     const orange = Color(0xFFD96545);
     const darkOlive = Color(0xFF4F5A35);
 
-    return Scaffold(
+    return AnimatedPage(child: Scaffold(
       backgroundColor: const Color(0xFFFAF7ED),
       body: Container(
         decoration: const BoxDecoration(
@@ -339,6 +340,6 @@ class _ChatDetailPageState
           ),
         ),
       ),
-    );
+    ));
   }
 }
